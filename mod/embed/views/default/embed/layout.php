@@ -5,6 +5,8 @@
 
 $title =  elgg_view_title(elgg_echo('embed:media'));
 
+$search_box = elgg_view('embed/search_box');
+
 $menu = elgg_view_menu('embed');
 
 $selected = elgg_get_config('embed_tab');
@@ -33,6 +35,7 @@ $container_info = elgg_view('input/hidden', array(
 echo <<<HTML
 <div class="embed-wrapper">
 	$title
+	$search_box
 	$menu
 	$tab
 	$container_info

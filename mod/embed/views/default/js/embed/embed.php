@@ -19,6 +19,9 @@ elgg.embed.init = function() {
 	$('.embed-section').live('click', elgg.embed.forward);
 
 	$('.elgg-form-embed').live('submit', elgg.embed.submit);
+	
+	$('.elgg-embed-search').live('submit', elgg.embed.search);
+	
 };
 
 /**
@@ -109,6 +112,20 @@ elgg.embed.forward = function(event) {
 	var url = $(this).attr('href');
 	url = elgg.embed.addContainerGUID(url);
 
+	$('.embed-wrapper').parent().load(url);
+	event.preventDefault();
+};
+
+/**
+ * Loads search results within the lightbox
+ *
+ * @param {Object} event
+ * @return bool
+ */
+elgg.embed.search = function(event) {
+	
+	var url = '';
+	
 	$('.embed-wrapper').parent().load(url);
 	event.preventDefault();
 };
