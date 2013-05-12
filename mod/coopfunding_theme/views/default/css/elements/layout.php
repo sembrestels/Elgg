@@ -61,6 +61,7 @@ body {
 	background: #333333;
 	padding-top: 12px;
 	padding-left: 12px;
+	padding-right: 12px;
 }
 .elgg-page-header > .elgg-inner {
 	position: relative;

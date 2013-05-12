@@ -12,7 +12,7 @@
 	ICONS
 *************************************** */
 
-.elgg-icon, .elgg-menu-item-logout a {
+.elgg-icon {
 	background: transparent url(<?php echo elgg_get_site_url(); ?>mod/n1_theme/_graphics/elgg_sprites.png) no-repeat left;
 	width: 16px;
 	height: 16px;

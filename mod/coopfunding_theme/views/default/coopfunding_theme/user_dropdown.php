@@ -1,27 +1,28 @@
 <?php
 /**
- * Elgg drop-down login form
+ * Elgg drop-down user
  */
 
-if (elgg_is_logged_in()) {
+$user = elgg_get_logged_in_user_entity();
+
+if (!$user) {
 	return true;
 }
 
-$login_url = elgg_get_site_url();
-if (elgg_get_config('https_login')) {
-	$login_url = str_replace("http:", "https:", elgg_get_site_url());
-}
+$body = elgg_view_menu('topbar', array('sort_by' => 'priority', array('elgg-menu-hz')));
 
-$body = elgg_view_form('login', array('action' => "{$login_url}action/login"), array('returntoreferer' => TRUE));
 ?>
-<div id="login-dropdown">
+<div id="login-dropdown" class="user-dropdown">
 	<?php 
 		echo elgg_view('output/url', array(
-			'href' => 'login#login-dropdown-box',
+			'href' => '#login-dropdown-box',
 			'rel' => 'popup',
 			'class' => 'elgg-button elgg-button-dropdown',
-			'text' => elgg_echo('login'),
+			'text' => $user->name,
 		)); 
-		echo elgg_view_module('dropdown', '', $body, array('id' => 'login-dropdown-box')); 
+		echo elgg_view_module('dropdown', '', $body, array(
+			'id' => 'login-dropdown-box',
+			'class' => 'user-dropdown-box',
+		)); 
 	?>
 </div>
