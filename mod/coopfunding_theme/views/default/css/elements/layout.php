@@ -40,19 +40,6 @@ body {
 	border-top: 1px solid #DEDEDE;
 }
 
-/***** TOPBAR ******/
-.elgg-page-topbar {
-	background-color: #333333;
-	position: relative;
-	height: 24px;
-	z-index: 9000;
-	position: fixed;
-	width: 100%;
-}
-.elgg-page-topbar > .elgg-inner {
-	padding: 0 10px;
-}
-
 /***** PAGE MESSAGES ******/
 .elgg-system-messages {
 	position: fixed;
@@ -72,7 +59,8 @@ body {
 .elgg-page-header {
 	position: relative;
 	background: #333333;
-	padding-top: 24px;
+	padding-top: 12px;
+	padding-left: 12px;
 }
 .elgg-page-header > .elgg-inner {
 	position: relative;

@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 }
 
-h1 { font-size: 2em; visibility: hidden;}
+h1 { font-size: 2em; display: inline-block; }
 h2 { font-size: 1.8em; line-height: 1.1em; padding-bottom:5px}
 h3 { font-size: 1.2em; }
 h4 { font-size: 1.0em; }

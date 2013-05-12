@@ -150,57 +150,6 @@
 }
 
 /* ***************************************
-	TOPBAR MENU
-*************************************** */
-.elgg-menu-topbar {
-	float: left;
-}
-
-.elgg-menu-topbar > li {
-	float: left;
-}
-
-.elgg-menu-topbar > li > a {
-	padding: 2px 7px 0;
-	margin-top: 1px;
-	font-size: 0px;
-	color: #333;
-}
-
-.elgg-menu-topbar > li > a:hover {
-	color: #333;
-	text-decoration: none;
-}
-
-.elgg-menu-topbar-alt {
-	float: right;
-}
-
-.elgg-menu-topbar .elgg-icon {
-	vertical-align: middle;
-	margin-top: -1px;
-}
-
-.elgg-menu-topbar > li > a.elgg-topbar-logo {
-	margin-top: 0;
-	padding-left: 5px;
-	width: 38px;
-	height: 20px;
-}
-
-.elgg-menu-topbar > li > a.elgg-topbar-avatar {
-	width: 18px;
-	height: 18px;
-}
-
-.elgg-menu-item-logout a {
-	margin-top: 2px;
-	margin-left: 8px;
-	padding-top: 1px;
-}
-
-
-/* ***************************************
 	SITE MENU
 *************************************** */
 .elgg-menu-site {
@@ -218,10 +167,7 @@
 }
 
 .elgg-menu-site-default {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	height: 23px;
+	display: inline-block;
 }
 
 .elgg-menu-site-default > li {
@@ -246,54 +192,6 @@
 .elgg-menu-site-default > li:hover > a {
 	color: white;
 	text-shadow: 0px 0px 4px #FFF;
-}
-
-.elgg-menu-site-more {
-	position: relative;
-	left: -1px;
-	width: 100%;
-	min-width: 150px;
-	border: 1px solid #999;
-	border-top: 0;
-
-	-webkit-border-radius: 0 0 4px 4px;
-	-moz-border-radius: 0 0 4px 4px;
-	border-radius: 0 0 4px 4px;
-
-	-webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-	-moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-}
-
-.elgg-menu-site-more > li > a {
-	background-color: #333;
-	color: #ed9239;
-
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
-	border-radius: 0;
-
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-}
-
-.elgg-menu-site-more > li > a:hover {
-	text-shadow: 0px 0px 4px #FFF;
-	color: white;
-}
-
-.elgg-menu-site-more > li:last-child > a,
-.elgg-menu-site-more > li:last-child > a:hover {
-	-webkit-border-radius: 0 0 4px 4px;
-	-moz-border-radius: 0 0 4px 4px;
-	border-radius: 0 0 4px 4px;
-}
-
-.elgg-more > a:before {
-	content: "\25BC";
-	font-size: smaller;
-	margin-right: 4px;
 }
 
 /* ***************************************
