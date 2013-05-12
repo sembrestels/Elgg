@@ -40,9 +40,9 @@ $nav = elgg_extract('nav', $vars, elgg_view('navigation/breadcrumbs'));
 		?>
 	</div>
 
-	<div class="elgg-sidebar">
+	<aside class="elgg-sidebar">
 		<?php
 			echo elgg_view('page/elements/sidebar', $vars);
 		?>
-	</div>
+	</aside>
 </div>
