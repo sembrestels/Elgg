@@ -23,7 +23,7 @@ function expages_init() {
 	expages_setup_footer_menu();
 
 	// register action
-	$actions_base = elgg_get_plugins_path() . 'externalpages/actions';
+	$actions_base = elgg_get_plugins_path() . 'coopfunding_pages/actions';
 	elgg_register_action("expages/edit", "$actions_base/edit.php", 'admin');
 }
 
@@ -73,7 +73,9 @@ function expages_page_handler($page, $handler) {
 		'limit' => 1,
 	));
 	if ($object) {
-		$content .= elgg_view('output/longtext', array('value' => $object[0]->description));
+		$content .= elgg_view('output/longtext', array(
+			'value' => $object[0]->description,
+		));
 	} else {
 		$content .= elgg_echo("expages:notset");
 	}

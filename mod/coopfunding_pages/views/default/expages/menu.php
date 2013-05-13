@@ -10,7 +10,7 @@ $type = $vars['type'];
 //set the url
 $url = $vars['url'] . "admin/site/expages?type=";
  
-$pages = array('about', 'terms', 'privacy');
+$pages = array('about', 'terms', 'privacy', 'footer');
 $tabs = array();
 foreach ($pages as $page) {
 	$tabs[] = array(
