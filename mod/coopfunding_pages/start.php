@@ -6,6 +6,10 @@
 elgg_register_event_handler('init', 'system', 'expages_init');
 
 function expages_init() {
+	
+	// Set up the menu
+	$item = new ElggMenuItem('about', elgg_echo('expages:about'), 'about');
+	elgg_register_menu_item('site', $item);
 
 	// Register a page handler, so we can have nice URLs
 	elgg_register_page_handler('about', 'expages_page_handler');

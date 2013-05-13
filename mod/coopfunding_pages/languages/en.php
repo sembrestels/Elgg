@@ -14,6 +14,7 @@ $language = array(
 	'expages:terms' => "Terms",
 	'expages:privacy' => "Privacy",
 	'expages:contact' => "Contact",
+	'expages:footer' => "Footer",
 
 	'expages:notset' => "This page has not been set up yet.",
 
