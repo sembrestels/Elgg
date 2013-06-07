@@ -66,6 +66,7 @@ function projects_handle_all_page() {
 	$filter = elgg_view('projects/project_sort_menu', array('selected' => $selected_tab));
 	
 	$sidebar .= elgg_view('projects/sidebar/featured');
+	$sidebar .= elgg_view('projects/sidebar/tagcloud');
 
 	$params = array(
 		'content' => $content,
@@ -136,10 +137,12 @@ function projects_handle_owned_page() {
 		$content = elgg_echo('projects:none');
 	}
 
+	$sidebar = elgg_view('projects/sidebar/tagcloud');
 	$params = array(
 		'content' => $content,
 		'title' => $title,
 		'filter' => '',
+		'sidebar' => $sidebar,
 	);
 	$body = elgg_view_layout('content', $params);
 
@@ -173,11 +176,13 @@ function projects_handle_mine_page() {
 	if (!$content) {
 		$content = elgg_echo('projects:none');
 	}
-
+	
+	$sidebar = elgg_view('projects/sidebar/tagcloud');
 	$params = array(
 		'content' => $content,
 		'title' => $title,
 		'filter' => '',
+		'sidebar' => $sidebar,
 	);
 	$body = elgg_view_layout('content', $params);
 
@@ -357,11 +362,13 @@ function projects_handle_members_page($guid) {
 		'limit' => 20,
 	));
 
+
 	$params = array(
 		'content' => $content,
 		'title' => $title,
 		'filter' => '',
 	);
+
 	$body = elgg_view_layout('content', $params);
 
 	echo elgg_view_page($title, $body);
