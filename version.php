@@ -19,4 +19,4 @@ $release = '1.8.15';
 /**
  * Coopfunding version number. 
  */
-$coopfunding_release = '0.1-beta';
+$coopfunding_release = '0.1';

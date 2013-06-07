@@ -1,0 +1,51 @@
+Version 0.1 
+(June 7th, 2013 from git://github.com/Coopfunding/Coopfunding.git)
+
+ Contributors:
+  * Aleph
+  * Caedes 
+  * D3
+  * Duub
+  * Helena
+  * Sem
+  * Verneda
+
+ User-visible changes:
+  * New default and responsive theme.
+  * New WYSIWYG editor.
+
+ Enhancements:
+  * Friendly time automatic update.
+  * Default icos from Libravatar and Gravatar.
+
+ New plugins:
+  * banner - Display admin message in the front-page. User can close it.
+  * ckeditor4 - Replaces tinymce editor.
+  * coopfunding_index - Main page, customized widgets.
+  * coopfunding_theme - Extends Elgg theme.
+  * elgg_theme - Responsive theme backported from 1.9 
+  * friendly_time - Update friendlytime in the client side.
+  * libravatar - Get avatars from Libravatar or Gravatar when the user didn't set any.
+  * projects - Forked from groups.
+  * projects-contact - Missages to all projects members.
+
+ Elgg bundled plugins not included in this distribution:
+  * blog
+  * bookmarks
+  * categories
+  * dashboard    
+  * embed
+  * file
+  * invitefriends
+  * likes
+  * members
+  * messageboard
+  * notifications
+  * pages
+  * reportedcontent
+  * tagcloud
+  * thewire 
+  * tinymce
+  * twitter_api
+  * zaudio 
+

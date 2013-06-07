@@ -3,6 +3,7 @@
 	<name>CKEditor4</name>
 	<author>Lorea developers</author>
 	<version>1.8.1</version>
+	<category>coopfunding-bundled</category>
 	<category>enhancement</category>
 	<description>Integrates the popular rich text editor CKEditor as a plugin.</description>
 	<website>http://lorea.org/</website>

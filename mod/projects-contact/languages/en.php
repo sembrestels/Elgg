@@ -36,7 +36,7 @@ $language = array(
 'projects_contact:project' => 'Messages',
 'projects_contact:noproject' => 'No messages.',
 'river:create:object:projects_contact' => '%s new message %s',
-'item:object:projects_contact' => 'Contact messages',
+'item:object:projects-contact' => 'Contact messages',
 
 /**
 * Success messages

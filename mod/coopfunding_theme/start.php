@@ -26,5 +26,6 @@ function coopfunding_theme_init() {
 	}, 1001);
 
 	elgg_extend_view('css/elgg', 'coopfunding_theme/css');
+	elgg_extend_view('css/admin', 'coopfunding_theme/admin_css');
 
 }
