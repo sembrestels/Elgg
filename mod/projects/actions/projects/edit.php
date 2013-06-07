@@ -172,6 +172,8 @@ if ($is_new_project) {
 $has_uploaded_icon = (!empty($_FILES['icon']['type']) && substr_count($_FILES['icon']['type'], 'image/'));
 
 if ($has_uploaded_icon) {
+	
+	elgg_load_library('elgg:projects');
 
 	$icon_sizes = elgg_get_config('projects_icon_sizes');
 
@@ -189,11 +191,10 @@ if ($has_uploaded_icon) {
 
 	$thumbs = array();
 	foreach ($sizes as $size) {
-		$thumbs[$size] = get_resized_image_from_existing_file(
+		$thumbs[$size] = projects_get_resized_and_cropped_image_from_existing_file(
 			$filename,
 			$icon_sizes[$size]['w'],
-			$icon_sizes[$size]['h'],
-			$icon_sizes[$size]['square']
+			$icon_sizes[$size]['h']
 		);
 	}
 

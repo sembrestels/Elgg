@@ -44,3 +44,29 @@
 .projects-latest-reply {
 	float: right;
 }
+
+.elgg-gallery > .elgg-item, .search-list > .elgg-item {
+	display: inline-block;
+	width: 33%;
+	vertical-align: top;
+}
+
+@media screen and (max-width: 480px) {
+	.elgg-gallery > .elgg-item, .search-list > .elgg-item {
+		width: 100%;
+	}
+}
+
+.projects-gallery-info {
+	padding: 10px;	
+}
+
+.projects-gallery-item {
+	text-align: center;
+	padding: 10px 4px;
+	margin-bottom: 7px;	
+}
+
+.projects-gallery-photo img {
+	width: 100%
+}

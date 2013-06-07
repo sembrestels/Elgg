@@ -22,11 +22,12 @@ function projects_init() {
 		'tiny' => array('w' => 50, 'h' => 50),
 		'small' => array('w' => 50, 'h' => 50),
 		'medium' => array('w' => 640, 'h' => 360),
-		'large' => array('w' => 720, 'h' => 576),
+		'large' => array('w' => 720, 'h' => 405),
 	));
 	
 	// register project entities for search
-	elgg_register_entity_type('group', 'project');
+	// @todo register projects subtype
+	elgg_register_entity_type('group');
 
 	// Set up the menu
 	$item = new ElggMenuItem('projects', elgg_echo('projects'), 'projects/all');
@@ -246,15 +247,19 @@ function projects_page_handler($page, $handler) {
 
 	switch ($page[0]) {
 		case 'all':
+			projects_register_toggle();			
 			projects_handle_all_page();
 			break;
 		case 'search':
+			projects_register_toggle();					
 			projects_search_page();
 			break;
 		case 'owner':
+			projects_register_toggle();			
 			projects_handle_owned_page();
 			break;
 		case 'member':
+			projects_register_toggle();			
 			set_input('username', $page[1]);
 			projects_handle_mine_page();
 			break;
@@ -709,3 +714,36 @@ function projectprofile_ecml_views_hook($hook, $entity_type, $return_value, $par
 	return $return_value;
 }
 
+
+/**
+ * Adds a toggle to extra menu for switching between list and gallery views
+ */
+function projects_register_toggle() {
+
+	set_input('list_type', get_input('list_type', 'gallery'));
+
+	$url = elgg_http_remove_url_query_element(current_page_url(), 'list_type');
+
+	if (get_input('list_type', 'list') == 'list') {
+		$list_type = "gallery";
+		$icon = elgg_view_icon('grid');
+	} else {
+		$list_type = "list";		
+		$icon = elgg_view_icon('list');
+	}
+
+	if (substr_count($url, '?')) {
+		$url .= "&list_type=" . $list_type;
+	} else {
+		$url .= "?list_type=" . $list_type;
+	}
+
+
+	elgg_register_menu_item('extras', array(
+		'name' => 'file_list',
+		'text' => $icon,
+		'href' => $url,
+		'title' => elgg_echo("file:list:$list_type"),
+		'priority' => 1000,
+	));
+}

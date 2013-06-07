@@ -9,7 +9,8 @@
 $featured_projects = elgg_get_entities_from_metadata(array(
 	'metadata_name' => 'featured_project',
 	'metadata_value' => 'yes',
-	'type' => 'project',
+	'type' => 'group',
+	'subtype' => 'project',
 	'limit' => 10,
 ));
 
