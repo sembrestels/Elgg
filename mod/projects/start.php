@@ -26,7 +26,8 @@ function projects_init() {
 	));
 	
 	// register project entities for search
-	elgg_register_entity_type('group', 'project');
+	// @todo register projects subtype
+	elgg_register_entity_type('group');
 
 	// Set up the menu
 	$item = new ElggMenuItem('projects', elgg_echo('projects'), 'projects/all');

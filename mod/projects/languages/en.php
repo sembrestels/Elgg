@@ -89,7 +89,9 @@ $language = array(
 
 	'projects:more' => 'More projects',
 	'projects:none' => 'No projects',
-
+	
+	'item:group' => 'Projects',
+	'item:group:project' => 'Projects',
 
 	/*
 	 * Access

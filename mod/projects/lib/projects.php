@@ -65,7 +65,6 @@ function projects_handle_all_page() {
 
 	$filter = elgg_view('projects/project_sort_menu', array('selected' => $selected_tab));
 	
-	$sidebar = elgg_view('projects/sidebar/find');
 	$sidebar .= elgg_view('projects/sidebar/featured');
 
 	$params = array(
