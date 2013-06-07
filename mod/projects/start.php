@@ -246,16 +246,19 @@ function projects_page_handler($page, $handler) {
 
 	switch ($page[0]) {
 		case 'all':
-			projects_register_toggle();
+			projects_register_toggle();			
 			projects_handle_all_page();
 			break;
 		case 'search':
+			projects_register_toggle();					
 			projects_search_page();
 			break;
 		case 'owner':
+			projects_register_toggle();			
 			projects_handle_owned_page();
 			break;
 		case 'member':
+			projects_register_toggle();			
 			set_input('username', $page[1]);
 			projects_handle_mine_page();
 			break;
@@ -715,13 +718,16 @@ function projectprofile_ecml_views_hook($hook, $entity_type, $return_value, $par
  * Adds a toggle to extra menu for switching between list and gallery views
  */
 function projects_register_toggle() {
+
+	set_input('list_type', get_input('list_type', 'gallery'));
+
 	$url = elgg_http_remove_url_query_element(current_page_url(), 'list_type');
 
 	if (get_input('list_type', 'list') == 'list') {
 		$list_type = "gallery";
 		$icon = elgg_view_icon('grid');
 	} else {
-		$list_type = "list";
+		$list_type = "list";		
 		$icon = elgg_view_icon('list');
 	}
 
