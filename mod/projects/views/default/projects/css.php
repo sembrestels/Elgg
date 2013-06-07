@@ -45,13 +45,14 @@
 	float: right;
 }
 
-.elgg-gallery > .elgg-item {
+.elgg-gallery > .elgg-item, .search-list > .elgg-item {
+	display: inline-block;
 	width: 33%;
 	vertical-align: top;
 }
 
 @media screen and (max-width: 480px) {
-	.elgg-gallery > .elgg-item {
+	.elgg-gallery > .elgg-item, .search-list > .elgg-item {
 		width: 100%;
 	}
 }
