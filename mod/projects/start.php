@@ -22,7 +22,7 @@ function projects_init() {
 		'tiny' => array('w' => 50, 'h' => 50),
 		'small' => array('w' => 50, 'h' => 50),
 		'medium' => array('w' => 640, 'h' => 360),
-		'large' => array('w' => 720, 'h' => 576),
+		'large' => array('w' => 720, 'h' => 405),
 	));
 	
 	// register project entities for search

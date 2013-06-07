@@ -22,8 +22,10 @@ if (elgg_in_context('owner_block') || elgg_in_context('widgets')) {
 }
 
 
-if ($vars['full_view']) {
+if ($vars['full_view'] && !elgg_in_context('gallery')) {
 	echo elgg_view('projects/profile/summary', $vars);
+} elseif (elgg_in_context('gallery')) {
+	echo elgg_view('projects/profile/gallery', $vars);
 } elseif (elgg_in_context('owner_block')) {
 	echo elgg_view('projects/owner_block', $vars);
 } else {
