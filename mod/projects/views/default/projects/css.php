@@ -70,3 +70,7 @@
 .projects-gallery-photo img {
 	width: 100%
 }
+
+.projects-gallery-item:hover img {
+	-webkit-filter: hue-rotate(90deg);
+}
