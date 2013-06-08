@@ -18,5 +18,10 @@
 		<type>plugin</type>
 		<name>elgg_theme</name>
 	</requires>
+	<requires>
+		<type>priority</type>
+		<priority>after</priority>
+		<plugin>search</plugin>
+	</requires>
 	<activate_on_install>true</activate_on_install>
 </plugin_manifest>
