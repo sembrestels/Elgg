@@ -13,14 +13,14 @@ if (!$owner) {
 	$msg = elgg_echo('InvalidParameterException:IdNotExistForGUID', array('project owner', $project->guid));
 	throw new InvalidParameterException($msg);
 }
-
-$tags = array('value' => $project->interests);
+$title = elgg_view('output/url', array('text' => $project->name, 'href' => $project->getURL()));
+$tags = elgg_view('output/tags', array('value' => $project->interests));
 ?>
 
-<div class="projects-gallery-item">	
+<div class="projects-gallery-item">
 	<p class="projects-gallery-photo"><?php echo elgg_view_entity_icon($project, 'medium') ?></p>
-	<h2> <?php echo $project->name ?></h2>
-	<div class="projects-gallery-tags" ><?php echo elgg_view("output/tags", $tags); ?></div>
+	<h3><?php echo $title ?></h3>
+	<div class="projects-gallery-tags" ><?php echo $tags; ?></div>
 	<div class="projects-gallery-info">
 		<p class="projects-gallery-subtitle"><?php echo $project->briefdescription?></p>		
 	</div>
