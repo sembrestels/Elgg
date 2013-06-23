@@ -1,20 +1,22 @@
 <?php
 ?>
 ul.elgg-menu-language-selector {
-	position: absolute;
-	right: 0px;
-	top: 42px;
-	color: black;
+	color: white;
+	text-align: right;
+	padding-top: 5px;
+}
+ul.elgg-menu-language-selector .elgg-state-selected {
+	font-weight: bold;
 }
 ul.elgg-menu-language-selector > li {
 	display: inline-block;
 }
 ul.elgg-menu-language-selector > li:first-child:before {
-    content: "";
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
+	content: "";
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0;
 }
 ul.elgg-menu-language-selector > li:before {
 	content: "|";
@@ -25,6 +27,7 @@ ul.elgg-menu-language-selector > li:before {
 	color: white;
 }
 ul.elgg-menu-language-selector > li > a {
-	color: white;
 	display: inline-block;
+	color: white;
 }
+

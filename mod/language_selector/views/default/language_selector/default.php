@@ -9,6 +9,7 @@ if (count($allowed) > 1) {
 		$lang_name = elgg_echo($lang_id, array(), $lang_id);
 		$action = false;
 
+		$selected = false;
 		if ($current_lang_id != $lang_id) {
 			if (elgg_is_logged_in()) {
 				$action = elgg_add_action_tokens_to_url($vars['url'] . "action/language_selector/change?lang_id=" . $lang_id);
