@@ -11,11 +11,7 @@ if (count($allowed) > 1) {
 
 		$selected = false;
 		if ($current_lang_id != $lang_id) {
-			if (elgg_is_logged_in()) {
-				$action = elgg_add_action_tokens_to_url($vars['url'] . "action/language_selector/change?lang_id=" . $lang_id);
-			} else {
-				$action = "javascript:elgg.language_selector.set_language('$lang_id');";
-			}
+			$action = elgg_add_action_tokens_to_url($vars['url'] . "action/language_selector/change?lang_id=" . $lang_id);
 		} else {
 			$selected = true;
 		}

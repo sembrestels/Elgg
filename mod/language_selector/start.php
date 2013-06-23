@@ -17,7 +17,7 @@ function language_selector_plugins_boot(){
 		elgg_register_event_handler('upgrade', 'system', 'language_selector_invalidate_setting');
 
 		// actions
-		elgg_register_action('language_selector/change', dirname(__FILE__) . '/actions/change.php', "logged_in");
+		elgg_register_action('language_selector/change', dirname(__FILE__) . '/actions/change.php', "public");
 
 		if (!empty($_COOKIE['client_language'])) {
 			// switched with language selector
@@ -42,7 +42,6 @@ function language_selector_plugins_boot(){
 	}
 
 	elgg_extend_view("css/elgg", "language_selector/css");
-	elgg_extend_view("js/elgg", "language_selector/js");
 }
 
 function language_selector_invalidate_setting() {

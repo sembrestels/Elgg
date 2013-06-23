@@ -9,6 +9,8 @@ if (!empty($new_lang_id) && array_key_exists($new_lang_id, $installed)) {
 		$user->save();
 
 		elgg_trigger_event("update", "language", $user);
+	} else {
+		setcookie("client_language", $new_lang_id, time()+60*60*24*30, "/");
 	}
 }
 
