@@ -42,7 +42,17 @@ class Elgg_Amd_Config {
 	}
 
 	/**
-	 * Method that does something
+	 * Unset the path for a module
+	 *
+	 * @param string $module Module name
+	 * @return void
+	 */
+	public function unsetPath($module) {
+		unset($this->paths[$module]);
+	}
+
+	/**
+	 * Sets the shim for a module
 	 *
 	 * @todo update documentation
 	 * 
@@ -60,6 +70,16 @@ class Elgg_Amd_Config {
 	}
 
 	/**
+	 * Unset the shim of a module
+	 *
+	 * @param string $module Module name
+	 * @return void
+	 */
+	public function unsetShim($module) {
+		unset($this->shim[$module]);
+	}
+
+	/**
 	 * Add a dependency
 	 * 
 	 * @param string $name Name of the dependency
@@ -67,6 +87,16 @@ class Elgg_Amd_Config {
 	 */
 	public function addDependency($name) {
 		$this->dependencies[$name] = true;
+	}
+
+	/**
+	 * Removes a dependency
+	 *
+	 * @param string $name Name of the dependency
+	 * @return void
+	 */
+	public function removeDependency($name) {
+		unset($this->dependencies[$name]);
 	}
 
 	/**
