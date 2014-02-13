@@ -31,7 +31,7 @@ function developers_init() {
 	));
 	elgg_register_css('jquery.jstree', '/mod/developers/vendors/jsTree/themes/default/style.css');
 
-	elgg_require_js('elgg/dev');
+	elgg_load_js('elgg/dev');
 }
 
 function developers_process_settings() {

@@ -129,14 +129,20 @@ function elgg_register_js($name, $url, $location = 'head', $priority = null) {
 	if (is_array($url)) {
 		$config = $url;
 		$url = elgg_extract('src', $config);
-		$location = elgg_extract('location', $config, 'footer');
-		$priority = elgg_extract('priority', $config);
-		
+
+		elgg_unregister_external_file('js', $name);
 		_elgg_services()->amdConfig->setShim($name, $config);
 		_elgg_services()->amdConfig->setPath($name, elgg_normalize_url($url));
+		return true;
+	} else {
+		_elgg_services()->amdConfig->unsetShim($name);
+		_elgg_services()->amdConfig->unsetPath($name);
+		if (in_array($name, _elgg_services()->amdConfig->getDependencies())) {
+			elgg_load_external_file('js', $name);
+			_elgg_services()->amdConfig->removeDependency($name);
+		}
+		return elgg_register_external_file('js', $name, $url, $location, $priority);
 	}
-
-	return elgg_register_external_file('js', $name, $url, $location, $priority);
 }
 
 /**
@@ -148,6 +154,8 @@ function elgg_register_js($name, $url, $location = 'head', $priority = null) {
  * @since 1.8.0
  */
 function elgg_unregister_js($name) {
+	_elgg_services()->amdConfig->unsetShim($name);
+	_elgg_services()->amdConfig->unsetPath($name);
 	return elgg_unregister_external_file('js', $name);
 }
 
@@ -163,21 +171,12 @@ function elgg_unregister_js($name) {
  * @since 1.8.0
  */
 function elgg_load_js($name) {
-	elgg_load_external_file('js', $name);
+	if (elgg_is_registered_external_file('js', $name)) {
+		elgg_load_external_file('js', $name);
+	} else {
+		_elgg_services()->amdConfig->addDependency($name);
+	}
 }
-
-
-/**
- * Request that Elgg load an AMD module onto the page.
- *
- * @param string $name The AMD module name.
- * @return void
- * @since 1.9.0
- */
-function elgg_require_js($name) {
-	_elgg_services()->amdConfig->addDependency($name);
-}
-
 
 /**
  * Get the JavaScript URLs that are loaded
@@ -281,6 +280,7 @@ function elgg_register_external_file($type, $name, $url, $location, $priority = 
 	if ($item) {
 		// updating a registered item
 		// don't update loaded because it could already be set
+		$item->registered = true;
 		$item->url = $url;
 		$item->location = $location;
 
@@ -292,6 +292,7 @@ function elgg_register_external_file($type, $name, $url, $location, $priority = 
 		}
 	} else {
 		$item = new stdClass();
+		$item->registered = true;
 		$item->loaded = false;
 		$item->url = $url;
 		$item->location = $location;
@@ -352,6 +353,7 @@ function elgg_load_external_file($type, $name) {
 		$item->loaded = true;
 	} else {
 		$item = new stdClass();
+		$item->registered = false;
 		$item->loaded = true;
 		$item->url = '';
 		$item->location = '';
@@ -359,6 +361,27 @@ function elgg_load_external_file($type, $name) {
 		$CONFIG->externals[$type]->add($item);
 		$CONFIG->externals_map[$type][$name] = $item;
 	}
+}
+
+/**
+ * Checks if a resource has been registered by {@link elgg_register_external_file}
+ *
+ * @param string $type Type of file: js or css
+ * @param string $name The identifier for the file
+ *
+ * @return bool
+ * @since 1.9.0
+ */
+function elgg_is_registered_external_file($type, $name) {
+	global $CONFIG;
+
+	_elgg_bootstrap_externals_data_structure($type);
+
+	$name = trim(strtolower($name));
+
+	$item = elgg_extract($name, $CONFIG->externals_map[$type]);
+
+	return $item && $item->registered;
 }
 
 /**
